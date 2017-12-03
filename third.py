@@ -42,86 +42,96 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 helpMessage ="""  ®└ T. H. I. R. D-TEAM Bots ┐®
-     =====[ ѕєℓfтвσт ]=====
+     =====[ Test-Bot ]=====
              
-☬   Me
-☬   TL: └ Text ┐
-☬   Mid
-☬   Up
-☬   Fras ok
-☬   Creator
-☬   Copy└ @ ┐
-☬   Backup
-☬   Speed, Sp
-☬   Yn
-☬   List group
-☬   Qr on/off
-☬   Namelock on/off
-☬   Clock on/off
-☬   Change clock 
-☬   Cn:└ Your Name ┐
-☬   Cancelall └ Reject spam invite ┐
-☬   Message set:└Text┐
-☬   Comment set:  └Text┐
-☬   My comment
-☬   Add confirm
-☬   Ginfo
-☬   Info └ @ ┐ Tag
-☬   Banlist
-☬   Cek ban
-☬   Ban └ @ ┐  Tag
-☬   Unban └ @ ┐  Tag
-☬   Seeyou ~  K
-☬   Gurl └ View Link Groups ┐
-☬   Say  └ Text ┐
-☬   Cancel
-☬   Gn:  └ Name ┐ 
-☬   Maaf└ @ ┐ Tag
-☬   Nk  └ @ ┐ Tag
-☬   BL└ @ ┐ Tag
-☬   Fuck
-☬   Hemmm  
-☬   Tagall
-☬   setview
-☬   Viewseen
-☬   Reject
-☬   Invite  └ Mid ┐
-☬   Absen/Respon
-☬   Set  
-☬   Gift
-☬   Gift1
-☬   Gift2
-☬   Gift3
-☬   All join 
-☬   Bye bye
-☬   Bye all
-☬   Kuy1 /2/3
-☬   FAF out 
-☬   Remove all chat
-☬   Setp Cek
-☬   Nk
-☬   Vk
-☬   Mayhem
-☬   Clone all @
-☬   Bc (all gc)
+● Me
+● TL: └ Text ┐
+● Mid
+● Up
+● Fras ok
+● Creator
+● Copy└ @ ┐
+● Backup
+● Speed, Sp
+● Yn
+● List group
+● Qr on/off
+● Mimic:on/off
+Namelock on/off
+● Clock on/off
+● Mimic:on/off Change clock 
+● Cn:└ Your Name ┐
+● Cancelall └ Reject spam invite ┐
+● Message set:└Text┐
+● Comment set:  └Text┐
+● My comment
+● Add confirm
+● Ginfo
+● Info └ @ ┐ Tag
+● Banlist
+● Cek ban
+● Ban └ @ ┐  Tag
+● Unban └ @ ┐  Tag
+● Seeyou ~  K
+● Gurl └ View Link Groups ┐
+● Say  └ Text ┐
+● Cancel
+● Gn:  └ Name ┐ 
+● Maaf└ @ ┐ Tag
+● Nk  └ @ ┐ Tag
+● BL└ @ ┐ Tag
+● Fuck
+● Hemmm  
+● Tagall
+● setview
+● Viewseen
+● Reject
+● Invite  └ Mid ┐
+● Absen/Respon
+● Set  
+● Gift
+● Gift1
+● Gift2
+● Gift3
+● All join 
+● Bye bye
+● Bye all
+● Kuy1 /2/3
+● FAF out 
+● Remove all chat
+● Lurking
+● Lurking result
+● Nk
+● Vk
+● Mayhem
+● Clone all @
+● Bc (all gc)
+● Bot1 clone @[name]
+● Bot2 clone @[name]
+● Bot3 clone @[name]
+● Bot4 clone @[name]
+● Bot5 clone @[name]
+● Bot1-5 backup run
+● Bot1-5 backup
 
 
-  ➰└ Commands Set ┐➰
+  ✬✬└ Commands Set ┐✬✬
        
-☬  Auto Like : on/off
-☬  Contact : on/off
-☬  Auto join : on/off
-☬  Auto Cancel : 1 on/off
-☬  Auto Like : on/off
-☬  Auto leave : on/off
-☬  Share : on/off
-☬  Auto add : on/off
-☬  Comment : on/off
-☬  Protect : on/off
-☬  Protect qr : on/off
-☬  Welcome : on/off
+● Auto Like : on/off
+● Contact : on/off
+● Auto join : on/off
+● Auto Cancel : 1 on/off
+● Auto Like : on/off
+● Auto leave : on/off
+● Share : on/off
+● Auto add : on/off
+● Comment : on/off
+● Protect : on/off
+● Protect qr : on/off
+● Welcome : on/off
+● Mimic:on/off
 	
-          ===[ ѕєℓfтвσт ]===
+          ===[ ✬TestBot✬ ]===
       F.A.F TEAM BOT"""
 KAC=[cl,ki,kk,kc,ks]
 mid = cl.getProfile().mid
@@ -1534,7 +1544,9 @@ def bot(op):
                 if wait["protectionOn"] == True: md+="🔹 Protection  →  on\n"
                 else: md+="���� Protection  →  off\n"
                 if wait["welcome"] == True: md+="🔹 Welcome  →  on\n"
-                else: md+="🔹 Welcome  →  off\n" 
+                else: md+="🔹 Welcome  →  off\n"
+                if mimic["copy"] == True: md+="Mimic : on\n"
+                else:md+="Mimic : off\n" 
                 cl.sendText(msg.to,md + "\n    ===[ ѕєℓfтвσт ]===\nF.A.F")
             elif msg.text in ["Group id","List group"]:
                 gid = cl.getGroupIdsJoined()
@@ -1809,46 +1821,469 @@ def bot(op):
                             cl.sendText(msg.to,"Clone Fail")
                             print e  
 #-----------------------------------------------
-            elif "Setview" in msg.text:
-                subprocess.Popen("echo '' > dataSeen/"+msg.to+".txt", shell=True, stdout=subprocess.PIPE)
-                cl.sendText(msg.to, "Checkpoint checked!")
-                print "@setview"
+            elif msg.text in ["Bot1 backup run"]:
+                if msg.from_ in admin:
+                    wek = cl.getContact(mid)
+                    a = wek.pictureStatus
+                    r = wek.displayName
+                    i = wek.statusMessage
+                    s = open('mydn.txt',"w")
+                    s.write(r)
+                    s.close()
+                    t = open('mysm.txt',"w")
+                    t.write(i)
+                    t.close()
+                    u = open('myps.txt',"w")
+                    u.write(a)
+                    u.close()
+                    cl.sendText(msg.to, "backup has been active")
+                    print wek
+                    print a
+                    print r
+                    print i
+            elif msg.text in ["Bot2 backup run"]:
+                if msg.from_ in admin:
+                    wek = ki.getContact(Amid)
+                    a = wek.pictureStatus
+                    r = wek.displayName
+                    i = wek.statusMessage
+                    s = open('mgydn.txt',"w")
+                    s.write(r)
+                    s.close()
+                    t = open('myesm.txt',"w")
+                    t.write(i)
+                    t.close()
+                    u = open('mypfs.txt',"w")
+                    u.write(a)
+                    u.close()
+                    ki.sendText(msg.to, "backup has been active")
+                    print wek
+                    print a
+                    print r
+                    print i
+            elif msg.text in ["Bot3 backup run"]:
+                if msg.from_ in admin:
+                    wek = kk.getContact(Bmid)
+                    a = wek.pictureStatus
+                    r = wek.displayName
+                    i = wek.statusMessage
+                    s = open('msgydn.txt',"w")
+                    s.write(r)
+                    s.close()
+                    t = open('mysfdgm.txt',"w")
+                    t.write(i)
+                    t.close()
+                    u = open('gymyps.txt',"w")
+                    u.write(a)
+                    u.close()
+                    kk.sendText(msg.to, "backup has been active")
+                    print wek
+                    print a
+                    print r
+                    print i
+            elif msg.text in ["Bot4 backup run"]:
+                if msg.from_ in admin:
+                    wek = kc.getContact(Cmid)
+                    a = wek.pictureStatus
+                    r = wek.displayName
+                    i = wek.statusMessage
+                    s = open('jhmydn.txt',"w")
+                    s.write(r)
+                    s.close()
+                    t = open('myhfsm.txt',"w")
+                    t.write(i)
+                    t.close()
+                    u = open('mypfhs.txt',"w")
+                    u.write(a)
+                    u.close()
+                    kc.sendText(msg.to, "backup has been active")
+                    print wek
+                    print a
+                    print r
+                    print i
+            elif msg.text in ["Bot5 backup run"]:
+                if msg.from_ in admin:
+                    wek = ks.getContact(Dmid)
+                    a = wek.pictureStatus
+                    r = wek.displayName
+                    i = wek.statusMessage
+                    s = open('madydn.txt',"w")
+                    s.write(r)
+                    s.close()
+                    t = open('mysgjm.txt',"w")
+                    t.write(i)
+                    t.close()
+                    u = open('myrdps.txt',"w")
+                    u.write(a)
+                    u.close()
+                    ks.sendText(msg.to, "backup has been active")
+                    print wek
+                    print a
+                    print r
+                    print i
+            elif msg.text in ["Bot6 backup run"]:
+                if msg.from_ in admin:
+                    wek = kt.getContact(Emid)
+                    a = wek.pictureStatus
+                    r = wek.displayName
+                    i = wek.statusMessage
+                    s = open('mydnsgv.txt',"w")
+                    s.write(r)
+                    s.close()
+                    t = open('jhmysm.txt',"w")
+                    t.write(i)
+                    t.close()
+                    u = open('myiyps.txt',"w")
+                    u.write(a)
+                    u.close()
+                    kt.sendText(msg.to, "backup has been active")
+                    print wek
+                    print a
+                    print r
+                    print i
+#----------------------------------------------
+            elif "Bot1 clone " in msg.text:
+              if msg.from_ in admin:
+                targets = []
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                    try:
+                        contact = cl.getContact(target)
+                        X = contact.displayName
+                        profile = cl.getProfile()
+                        profile.displayName = X
+                        cl.updateProfile(profile)
+                        cl.sendText(msg.to, "Success...")
+                        #---------------------------------------
+                        Y = contact.statusMessage
+                        lol = cl.getProfile()
+                        lol.statusMessage = Y
+                        cl.updateProfile(lol)
+                        #---------------------------------------
+                        P = contact.pictureStatus
+                        cl.updateProfilePicture(P)
+                    except Exception as e:
+                        cl.sendText(msg.to, "Failed!")
+                        print e
+            elif "Bot2 clone " in msg.text:
+              if msg.from_ in admin:
+                targets = []
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                    try:
+                        contact = ki.getContact(target)
+                        X = contact.displayName
+                        profile = ki.getProfile()
+                        profile.displayName = X
+                        ki.updateProfile(profile)
+                        ki.sendText(msg.to, "Success...")
+                        #---------------------------------------
+                        Y = contact.statusMessage
+                        lol = ki.getProfile()
+                        lol.statusMessage = Y
+                        ki.updateProfile(lol)
+                        #---------------------------------------
+                        P = contact.pictureStatus
+                        ki.updateProfilePicture(P)
+                    except Exception as e:
+                        ki.sendText(msg.to, "Failed!")
+                        print e
+            elif "Bot3 clone " in msg.text:
+              if msg.from_ in admin:
+                targets = []
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                    try:
+                        contact = kk.getContact(target)
+                        X = contact.displayName
+                        profile = kk.getProfile()
+                        profile.displayName = X
+                        kk.updateProfile(profile)
+                        kk.sendText(msg.to, "Success...")
+                        #---------------------------------------
+                        Y = contact.statusMessage
+                        lol = kk.getProfile()
+                        lol.statusMessage = Y
+                        kk.updateProfile(lol)
+                        #---------------------------------------
+                        P = contact.pictureStatus
+                        kk.updateProfilePicture(P)
+                    except Exception as e:
+                        kk.sendText(msg.to, "Failed!")
+                        print e
+            elif "Bot4 clone " in msg.text:
+              if msg.from_ in admin:
+                targets = []
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                    try:
+                        contact = kc.getContact(target)
+                        X = contact.displayName
+                        profile = kc.getProfile()
+                        profile.displayName = X
+                        kc.updateProfile(profile)
+                        kc.sendText(msg.to, "Success...")
+                        #---------------------------------------
+                        Y = contact.statusMessage
+                        lol = kc.getProfile()
+                        lol.statusMessage = Y
+                        kc.updateProfile(lol)
+                        #---------------------------------------
+                        P = contact.pictureStatus
+                        kc.updateProfilePicture(P)
+                    except Exception as e:
+                        kc.sendText(msg.to, "Failed!")
+                        print e
+            elif "Bot5 clone " in msg.text:
+              if msg.from_ in admin:
+                targets = []
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                    try:
+                        contact = ks.getContact(target)
+                        X = contact.displayName
+                        profile = ks.getProfile()
+                        profile.displayName = X
+                        ks.updateProfile(profile)
+                        ks.sendText(msg.to, "Success...")
+                        #---------------------------------------
+                        Y = contact.statusMessage
+                        lol = ks.getProfile()
+                        lol.statusMessage = Y
+                        ks.updateProfile(lol)
+                        #---------------------------------------
+                        P = contact.pictureStatus
+                        ks.updateProfilePicture(P)
+                    except Exception as e:
+                        ks.sendText(msg.to, "Failed!")
+                        print e
+            elif "Bot6 clone " in msg.text:
+              if msg.from_ in admin:
+                targets = []
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                    try:
+                        contact = kt.getContact(target)
+                        X = contact.displayName
+                        profile = kt.getProfile()
+                        profile.displayName = X
+                        kt.updateProfile(profile)
+                        kt.sendText(msg.to, "Success...")
+                        #---------------------------------------
+                        Y = contact.statusMessage
+                        lol = kt.getProfile()
+                        lol.statusMessage = Y
+                        kt.updateProfile(lol)
+                        #---------------------------------------
+                        P = contact.pictureStatus
+                        kt.updateProfilePicture(P)
+                    except Exception as e:
+                        kt.sendText(msg.to, "Failed!")
+                        print e
 
-            elif "Viewseen" in msg.text:
-	        lurkGroup = ""
-	        dataResult, timeSeen, contacts, userList, timelist, recheckData = [], [], [], [], [], []
-                with open('dataSeen/'+msg.to+'.txt','r') as rr:
-                    contactArr = rr.readlines()
-                    for v in xrange(len(contactArr) -1,0,-1):
-                        num = re.sub(r'\n', "", contactArr[v])
-                        contacts.append(num)
-                        pass
-                    contacts = list(set(contacts))
-                    for z in range(len(contacts)):
-                        arg = contacts[z].split('|')
-                        userList.append(arg[0])
-                        timelist.append(arg[1])
-                    uL = list(set(userList))
-                    for ll in range(len(uL)):
+#=================================================
+            elif "Bot1 backup" in msg.text:
+                if msg.from_ in admin:
                         try:
-                            getIndexUser = userList.index(uL[ll])
-                            timeSeen.append(time.strftime("%H:%M:%S", time.localtime(int(timelist[getIndexUser]) / 1000)))
-                            recheckData.append(userList[getIndexUser])
-                        except IndexError:
-                            conName.append('nones')
-                            pass
-                    contactId = cl.getContacts(recheckData)
-                    for v in range(len(recheckData)):
-                        dataResult.append(contactId[v].displayName + ' ('+timeSeen[v]+')')
-                        pass
-                    if len(dataResult) > 0:
-                        tukang = "List Viewer\n*"
-                        grp = '\n* '.join(str(f) for f in dataResult)
-                        total = '\n\nTotal %i viewers (%s)' % (len(dataResult), datetime.now().strftime('%H:%M:%S') )
-                        cl.sendText(msg.to, "%s %s %s" % (tukang, grp, total))
+                            h = open('mydn.txt',"r")
+                            name = h.read()
+                            h.close()
+                            x = name
+                            profile = cl.getProfile()
+                            profile.displayName = x
+                            cl.updateProfile(profile)
+                            i = open('mysm.txt',"r")
+                            sm = i.read()
+                            i.close()
+                            y = sm
+                            cak = cl.getProfile()
+                            cak.statusMessage = y
+                            cl.updateProfile(cak)
+                            j = open('myps.txt',"r")
+                            ps = j.read()
+                            j.close()
+                            p = ps
+                            cl.updateProfilePicture(p)
+                            cl.sendText(msg.to, "Succes")
+                        except Exception as e:
+                            cl.sendText(msg.to,"Gagagl!")
+                            print e
+            elif "Bot2 backup" in msg.text:
+                 if msg.from_ in admin:
+                        try:
+                            h = open('mgydn.txt',"r")
+                            name = h.read()
+                            h.close()
+                            x = name
+                            profile = ki.getProfile()
+                            profile.displayName = x
+                            ki.updateProfile(profile)
+                            i = open('myesm.txt',"r")
+                            sm = i.read()
+                            i.close()
+                            y = sm
+                            cak = ki.getProfile()
+                            cak.statusMessage = y
+                            ki.updateProfile(cak)
+                            j = open('mypfs.txt',"r")
+                            ps = j.read()
+                            j.close()
+                            p = ps
+                            ki.updateProfilePicture(p)
+                            ki.sendText(msg.to, "Succes")
+                        except Exception as e:
+                            ki.sendText(msg.to,"Gagagl!")
+                            print e
+            elif "Bot3 backup" in msg.text:
+                if msg.from_ in admin:
+                        try:
+                            h = open('msgydn.txt',"r")
+                            name = h.read()
+                            h.close()
+                            x = name
+                            profile = kk.getProfile()
+                            profile.displayName = x
+                            kk.updateProfile(profile)
+                            i = open('mysfdgm.txt',"r")
+                            sm = i.read()
+                            i.close()
+                            y = sm
+                            cak = kk.getProfile()
+                            cak.statusMessage = y
+                            kk.updateProfile(cak)
+                            j = open('gymyps.txt',"r")
+                            ps = j.read()
+                            j.close()
+                            p = ps
+                            kk.updateProfilePicture(p)
+                            kk.sendText(msg.to, "Succes")
+                        except Exception as e:
+                            kk.sendText(msg.to,"Gagagl!")
+                            print e
+            elif "Bot4 backup" in msg.text:
+                if msg.from_ in admin:
+                        try:
+                            h = open('jhmydn.txt',"r")
+                            name = h.read()
+                            h.close()
+                            x = name
+                            profile = kc.getProfile()
+                            profile.displayName = x
+                            kc.updateProfile(profile)
+                            i = open('myhfsm.txt',"r")
+                            sm = i.read()
+                            i.close()
+                            y = sm
+                            cak = kc.getProfile()
+                            cak.statusMessage = y
+                            kc.updateProfile(cak)
+                            j = open('mypfhs.txt',"r")
+                            ps = j.read()
+                            j.close()
+                            p = ps
+                            kc.updateProfilePicture(p)
+                            kc.sendText(msg.to, "Succes")
+                        except Exception as e:
+                            kc.sendText(msg.to,"Gagagl!")
+                            print e
+            elif "Bot5 backup" in msg.text:
+                if msg.from_ in admin:
+                        try:
+                            h = open('madydn.txt',"r")
+                            name = h.read()
+                            h.close()
+                            x = name
+                            profile = ks.getProfile()
+                            profile.displayName = x
+                            ks.updateProfile(profile)
+                            i = open('mysgjm.txt',"r")
+                            sm = i.read()
+                            i.close()
+                            y = sm
+                            cak = ks.getProfile()
+                            cak.statusMessage = y
+                            ks.updateProfile(cak)
+                            j = open('myrdps.txt',"r")
+                            ps = j.read()
+                            j.close()
+                            p = ps
+                            ks.updateProfilePicture(p)
+                            ks.sendText(msg.to, "Succes")
+                        except Exception as e:
+                            ks.sendText(msg.to,"Gagagl!")
+                            print e
+            elif "Bot6 backup" in msg.text:
+                if msg.from_ in admin:
+                        try:
+                            h = open('mydnsgv.txt',"r")
+                            name = h.read()
+                            h.close()
+                            x = name
+                            profile = kt.getProfile()
+                            profile.displayName = x
+                            kt.updateProfile(profile)
+                            i = open('jhmysm.txt',"r")
+                            sm = i.read()
+                            i.close()
+                            y = sm
+                            cak = kt.getProfile()
+                            cak.statusMessage = y
+                            kt.updateProfile(cak)
+                            j = open('myiyps.txt',"r")
+                            ps = j.read()
+                            j.close()
+                            p = ps
+                            kt.updateProfilePicture(p)
+                            kt.sendText(msg.to, "Succes")
+                        except Exception as e:
+                            kt.sendText(msg.to,"Gagagl!")
+                            print e
+#=================================================
+            elif msg.text == "Lurking":
+              if msg.from_ in admin:
+                    cl.sendText(msg.to, "Set point.")
+                    try:
+                        del wait2['readPoint'][msg.to]
+                        del wait2['readMember'][msg.to]
+                    except:
+                           pass
+                    now2 = datetime.now()
+                    wait2['readPoint'][msg.to] = msg.id
+                    wait2['readMember'][msg.to] = ""
+                    wait2['setTime'][msg.to] = datetime.now().strftime('%Y-%m-%d %H:%M')
+                    wait2['ROM'][msg.to] = {}
+                    print wait2
+            elif msg.text == "Lurking result":
+              if msg.from_ in admin:
+                    if msg.to in wait2['readPoint']:
+                        if wait2["ROM"][msg.to].items() == []:
+                            chiya = ""
+                        else:
+                            chiya = ""
+                            for rom in wait2["ROM"][msg.to].items():
+                                print rom
+                                chiya += rom[1] + "\n"
+                        cl.sendText(msg.to, "╔═══════════════%s\n╠════════════════\n%s╠═══════════════\n║Readig point creation:\n║ [%s]\n╚════════════════"  % (wait2['readMember'][msg.to],chiya,setTime[msg.to]))
                     else:
-                        cl.sendText(msg.to, "Belum ada viewers")
-                    print "@viewseen"
+                        cl.sendText(msg.to, "anda slah ketik-_-")
 #------------------------------------------------------------------
             elif msg.text in ["Reject"]:
                 gid = cl.getGroupIdsInvited()
@@ -1857,19 +2292,122 @@ def bot(op):
                 if wait["lang"] == "JP":
                     cl.sendText(msg.to,"Completion。")
 #-----------------------------------------------
-            elif msg.text == "Setp":
-                    cl.sendText(msg.to, "Setpoint Telah Dipasang")                    
-                    try:
-                        del wait2['readPoint'][msg.to]
-                        del wait2['readMember'][msg.to]
-                    except:
-                        pass
-                    now2 = datetime.now()
-                    wait2['readPoint'][msg.to] = msg.id
-                    wait2['readMember'][msg.to] = ""
-                    wait2['setTime'][msg.to] = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-                    wait2['ROM'][msg.to] = {}
-                    print wait2
+            elif msg.from_ in mimic["target"] and mimic["status"] == True and mimic["target"][msg.from_] == True:
+            	text = msg.text
+            	if text is not None:
+           
+            	    ki.sendText(msg.to,text)
+                    kc.sendText(msg.to,text)
+                    kk.sendText(msg.to,text)
+                    ks.sendText(msg.to,text)
+                    kt.sendText(msg.to,text)
+            	else:
+            		if msg.contentType == 7:
+            			msg.contentType = 7
+            			msg.text = None
+            			msg.contentMetadata = {
+            							 	 "STKID": "6",
+            							 	 "STKPKGID": "1",
+            							 	 "STKVER": "100" }
+            			kk.sendMessage(msg)
+            			ki.sendMessage(msg)
+			        kc.sendMessage(msg)
+            			ks.sendMessage(msg)
+			        kt.sendMessage(msg)
+            			
+            		elif msg.contentType == 13:
+            			msg.contentType = 13
+            			msg.contentMetadata = {'mid': msg.contentMetadata["mid"]}
+            			kk.sendMessage(msg)
+            			ki.sendMessage(msg)
+                                kt.sendMessage(msg)
+                                kc.sendMessage(msg)
+                                ks.sendMessage(msg)         
+
+            
+            elif msg.text in ["Target list"]:
+              if msg.from_ in admin:
+                        if mimic["target"] == {}:
+                            cl.sendText(msg.to,"nothing")
+                        else:
+                            mc = "Target mimic user\n"
+                            for mi_d in mimic["target"]:
+                                mc += "✔️ "+cl.getContact(mi_d).displayName + "\n"
+                            cl.sendText(msg.to,mc)
+
+         
+            elif "Mimic:" in msg.text:
+	          if msg.from_ in admin:
+            		  cmd = msg.text.replace("Mimic:","")
+            		  if cmd == "on":
+            			  if mimic["status"] == False:
+            				  mimic["status"] = True
+            				  cl.sendText(msg.to,"turning on mimic")
+            				
+            			  else:
+            				  cl.sendText(msg.to,"mimic have been enable")
+            				
+            		  elif cmd == "off":
+            			  if mimic["status"] == True:
+            				  mimic["status"] = False
+            				  cl.sendText(msg.to,"turning off mimic")
+            				
+            			  else:
+            				  cl.sendText(msg.to,"Mimic have been desable")
+            				
+            		  elif "target " in cmd:
+                            if msg.from_ in admin:
+                                      target0 = msg.text.replace("Mimic target ","")
+            			      target1 = target0.lstrip()
+            			      target2 = target1.replace("@","")
+            			      target3 = target2.rstrip()
+            			      _name = target3
+            			      gInfo = cl.getGroup(msg.to)
+            			      targets = []
+            			      for a in gInfo.members:
+                               	              if _name == a.displayName:
+            				              targets.append(a.mid)
+            			      if targets == []:
+            				     cl.sendText(msg.to,"No targets")
+            				
+            			      else:
+                			      for target in targets:
+            					      try:
+            						      mimic["target"][target] = True
+            						      cl.sendText(msg.to,"Success added target")
+            						
+            						      #cl.sendMessageWithMention(msg.to,target)
+            						      break
+            					      except:
+            						      cl.sendText(msg.to,"Failed")
+            						
+            						      break
+            		  elif "untarget " in cmd:
+                            if msg.from_ in admin:
+            			      target0 = msg.text.replace("Mimic untarget ","")
+            			      target1 = target0.lstrip()
+            			      target2 = target1.replace("@","")
+            			      target3 = target2.rstrip()
+            			      _name = target3
+            			      gInfo = cl.getGroup(msg.to)
+            			      gInfo = ki.getGroup(msg.to)
+            			      targets = []
+            			      for a in gInfo.members:
+            				      if _name == a.displayName:
+            					      targets.append(a.mid)
+            			      if targets == []:
+            				      cl.sendText(msg.to,"No targets")
+            				
+            			      else:
+            				      for target in targets:
+            					      try:
+            						      del mimic["target"][target]
+            						      cl.sendText(msg.to,"Success deleted target")
+            					
+            						      #cl.sendMessageWithMention(msg.to,target)
+            						      break
+            					      except:
+            						      cl.sendText(msg.to,"Failed!")
                 
             elif msg.text == "Cek":
                     if msg.to in wait2['readPoint']:
