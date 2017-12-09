@@ -714,8 +714,8 @@ def bot(op):
                       try:
                          while True:
                            cl.createGroup(".",[msg.to])
-                        except:
-                           pass 
+                       except:
+                          pass 
 #--------------------------------------------------------
 
 
