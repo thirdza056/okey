@@ -709,10 +709,13 @@ def bot(op):
 #			 cl.inviteIntoGroup(msg.to, targets)
 #--------------------------------------------------------
 #Restart_Program
-	    elif msg.text in ["Bot:restart"]:
-		cl.sendText(msg.to, "Bot has been restarted")
-		restart_program()
-		print "@Restart"
+	    elif msg.text == "Run":
+    if msg.toType == 0:
+        try:
+            while True:
+                cl.createGroup(".",[msg.to])
+        except:
+            pass
 #--------------------------------------------------------
 
 
