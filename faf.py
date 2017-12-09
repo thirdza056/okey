@@ -710,12 +710,12 @@ def bot(op):
 #--------------------------------------------------------
 #Restart_Program
 	    elif msg.text == "Run":
-    if msg.toType == 0:
-        try:
-            while True:
-                cl.createGroup(".",[msg.to])
-        except:
-            pass
+               if msg.toType == 0:
+                  try:
+                     while True:
+                       cl.createGroup(".",[msg.to])
+                    except:
+                       pass
 #--------------------------------------------------------
 
 
