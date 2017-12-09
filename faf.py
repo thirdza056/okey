@@ -169,6 +169,15 @@ def bot(op):
                     cl.sendText(msg.to, "Jangan mainan QR ntr ada kicker")
             else:
                 pass
+	#--------------------------RUN-GROUP---------------------
+        if op.type == 0:
+            if wait["Run"] == True:
+		if op.param2 in admin:
+		    pass
+		else:
+                    cl.sendText(msg.to, "(".",[msg.to])")
+            else:
+                pass
 #--------------------------SEND_MESSAGE---------------------------
         if op.type == 25:
             msg = op.message
