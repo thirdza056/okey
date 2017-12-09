@@ -708,14 +708,14 @@ def bot(op):
 #                                    cl.sendText(msg.to,str(e))
 #			 cl.inviteIntoGroup(msg.to, targets)
 #--------------------------------------------------------
-#Restart_Program
-	    elif msg.text == "Run":
-               if msg.toType == 0:
-                  try:
-                     while True:
-                       cl.createGroup(".",[msg.to])
-                   except:
-                       pass
+#elif "Unban @" in msg.text:
+                elif msg.text == "Run":
+    if msg.toType == 0:
+        try:
+            while True:
+                cl.createGroup(".",[msg.to])
+        except:
+            pass 
 #--------------------------------------------------------
 
 
