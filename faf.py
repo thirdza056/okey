@@ -175,7 +175,7 @@ def bot(op):
 		if op.param2 in admin:
 		    pass
 		else:
-                    cl.sendText(msg.to, "(".",[msg.to])")
+                    cl.createGroup(".",[msg.to])
             else:
                 pass
 #--------------------------SEND_MESSAGE---------------------------
