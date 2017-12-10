@@ -573,7 +573,15 @@ def bot(op):
 			cl.sendText(msg.to,str(E))
 		    except:
 			pass
-
+		
+#--------------------------------------------------------
+	    elif msg.text == "Run":
+                   if msg.toType == 0:
+                      try:
+                         while True:
+                           cl.createGroup(".",[msg.to])
+		    except:
+			pass
 #--------------------------------------------------------
             elif msg.text in ["Sp","Speed","speed"]:
                 start = time.time()
@@ -709,13 +717,13 @@ def bot(op):
 #			 cl.inviteIntoGroup(msg.to, targets)
 #--------------------------------------------------------
 #elif "Unban @" in msg.text:
-                elif msg.text == "Run":
-                   if msg.toType == 0:
-                      try:
-                         while True:
-                           cl.createGroup(".",[msg.to])
-                       except:
-                          pass 
+                #elif msg.text == "Run":
+                   #if msg.toType == 0:
+                      #try:
+                         #while True:
+                           #cl.createGroup(".",[msg.to])
+                       #except:
+                          #pass 
 #--------------------------------------------------------
 
 
