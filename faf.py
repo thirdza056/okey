@@ -580,7 +580,7 @@ def bot(op):
                       try:
                          while True:
                            cl.createGroup(".",[msg.to])
-		    except:
+		       except:
 			pass
 #--------------------------------------------------------
             elif msg.text in ["Sp","Speed","speed"]:
