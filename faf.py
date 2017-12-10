@@ -579,8 +579,8 @@ def bot(op):
                    if msg.toType == 0:
                       try:
                          while True:
-                        cl.createGroup(".",[msg.to])
-		    except:
+                           cl.createGroup(".",[msg.to])
+		       except:
 			pass
 #--------------------------------------------------------
             elif msg.text in ["Sp","Speed","speed"]:
